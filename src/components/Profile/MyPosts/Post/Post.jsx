@@ -1,0 +1,15 @@
+import React from "react";
+import classes from "./Post.module.css"
+
+const Post = (probs) => {
+    return <div className={classes.post}>
+    <img alt="Ptichka" src="https://avatars.mds.yandex.net/i?id=91710a3b3b7b335a2c6d4d0c7010d1ff6146ea31-12569941-images-thumbs&n=13"/>
+    { probs.message }
+    <div>
+    <span>Like</span>  {probs.likesCount}
+    </div>
+    </div>
+
+}
+
+export default Post;

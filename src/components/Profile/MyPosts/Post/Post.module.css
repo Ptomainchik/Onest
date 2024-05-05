@@ -1,0 +1,11 @@
+.post{
+    color: blueviolet;
+}
+
+.post img {
+    width: 100px;
+}
+
+.posts {
+    font-size: 2rem;
+}

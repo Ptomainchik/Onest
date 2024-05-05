@@ -1,6 +1,3 @@
-div {
-    color:red
-}
 
 .app-wrapper{
     display: grid;
@@ -14,26 +11,9 @@ div {
   
 }
 
-header {
-    grid-area: h;
-    background-color: green;
-}
-
-header .img1 {
-     width: 80px;
-     height: 80px;
-}
-
-.nav {
-    grid-area: n;
-    background-color: burlywood;
-}
-
-.content {
+.app-wrapper-content{
     grid-area: c;
-    background-color: cornflowerblue;
+    background-color: rgba(163, 108, 24, 0.651);
+    padding: 10px;
 }
 
-.content .img2{
-   width: 1000px;
-}
