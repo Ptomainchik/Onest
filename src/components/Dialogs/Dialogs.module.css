@@ -3,8 +3,8 @@
  grid-template-columns: 2fr 10fr;
 }
 
-.dialogsitems {
-    padding: 10px;
+.dialogsitems { 
+    padding: 10px; 
 }
 
 .dialogsitems .active{

@@ -1,0 +1,22 @@
+.musics {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+   }
+   
+.musics  > div {
+       padding: 10px;
+   }
+   
+.musicsitems .active{
+       color: aqua;
+   }
+   
+.quantity {
+       padding: 10px;
+   
+   }
+   
+.quantity .quantitys {
+       color: black;
+   
+   }
