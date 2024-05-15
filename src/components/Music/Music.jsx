@@ -3,12 +3,12 @@ import classes from "./Music.module.css";
 import MusicItem from "./MusicItem/MusicItem";
 import Sings from "./Sings/Sings";
 
-const Music = (probs) => {
+const Music = (props) => {
  let musicsElements=
-  probs.state.stylymus.map(stylm => <MusicItem stylesmusic={stylm.stylesmusic} id={stylm.id}/>)
+  props.state.stylesMusics.map(stylm => <MusicItem stylesmusic={stylm.stylemusic} id={stylm.id}/>)
  
  let qantityElements = 
-  probs.state.sings.map(quantity => <Sings quantity={quantity.quantity} id={quantity.id}/>)
+  props.state.sings.map(quant => <Sings quantity={quant.quantity} id={quant.id}/>)
       
   return ( 
         <div className={classes.musics}>

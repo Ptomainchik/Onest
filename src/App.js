@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom";
 
 
 
-const App = (probs) => {
+const App = (props) => {
 
 
   return (
@@ -20,10 +20,10 @@ const App = (probs) => {
           <Navbar />
      <div className='app-wrapper-content'>
          <Routes>
-             <Route path="/dialogs" element={<Dialogs state={probs.state.dialogsPage}/>}/>
-             <Route path="/profile" element={<Profile profilePage={probs.state.profilePage} dispatch={probs.dispatch} />}/>
-             <Route path="/friends" element={<Friends state={probs.state.sidebar}/>}/>
-             <Route path="/music" element={<Music state={probs.state.music}/>}/>
+             <Route path="/dialogs" element={<Dialogs store={props.store}/>}/>
+             <Route path="/profile" element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />}/>
+             <Route path="/friends" element={<Friends state={props.state.friendsPage}/>}/>
+             <Route path="/music" element={<Music state={props.state.musicPage}/>}/>
          </Routes>
      </div>
     </div>

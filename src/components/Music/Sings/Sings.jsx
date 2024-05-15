@@ -2,9 +2,9 @@ import React from "react";
 import classes from "./../Music.module.css"
 
 
-const Sings = (probs) => {
+const Sings = (props) => {
     return (
-        <div className={classes.quantitys}>{probs.quantity}</div>
+        <div className={classes.quantitys}>{props.quantity}</div>
     )
 }
 

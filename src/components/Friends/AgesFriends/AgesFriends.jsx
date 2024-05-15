@@ -2,9 +2,9 @@ import React from "react";
 import classes from "./../Friends.module.css"
 
 
-const AgesFriends = (probs) => {
+const AgesFriends = (props) => {
     return (
-        <div className={classes.age}>{probs.age}</div>
+        <div className={classes.age}>{props.age}</div>
     )
 }
 
