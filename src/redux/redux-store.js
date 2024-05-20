@@ -1,20 +1,18 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { createStore,combineReducers, } from "redux";
 import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
-import friendsReducer from "./friendsReducer";
-import musicReducer from "./musicReducer";
 
 
 
-let store = configureStore({
-    reducer:{
-        dialogsPage:dialogsReducer,
+
+let rootReducers = combineReducers({
         profilePage:profileReducer,
-        friendsPage:friendsReducer,
-        musicPage:musicReducer
-    }
-})
+        dialogsPage:dialogsReducer,
+});
+
+let store = createStore(rootReducers);
+
+window.store = store
 
 export default store;
 
-window.store = store

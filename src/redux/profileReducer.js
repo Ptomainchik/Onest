@@ -10,30 +10,26 @@ let initialState = {
 
     const profileReducer = (state = initialState, action) => {
       switch (action.type) {
-
-        case ADD_POST:
-          let rand = Math.floor(Math.random() * 300); // Random № of likes 
-    
+         case ADD_POST:{
           let newPost = {
-            like: rand,
+            id: 6,
             message: state.newPostText,
-            name: "Mops",
+            likesCount: 0
           };
-          return {
-            ...state, // оператор расширения для создания копий объекта
-            posts: [...state.posts, newPost],
-            newPostText: "",
-          };
-        case UPDATE_NEW_POST_TEXT:
-          return {
-            ...state,
-            newPostText: action.text
-          };
+          let stateCopy = {...state};
+          stateCopy.posts = [...state.posts];
+          stateCopy.posts.push(newPost);
+          stateCopy.newPostText = "";
+          return stateCopy;}
+        case UPDATE_NEW_POST_TEXT:{
+          let stateCopy = {...state};
+          stateCopy.newPostText = action.newText;
+            return stateCopy;}
         default:
           return state;
       }}
 
-export const addPostActionCreator = (text) => ({type: ADD_POST, text})
-export const updateNewPostTextActionCreator = (text) =>({type: UPDATE_NEW_POST_TEXT, text})
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text) =>({type: UPDATE_NEW_POST_TEXT,  text})
 
-export default profileReducer;
+export default profileReducer; 
