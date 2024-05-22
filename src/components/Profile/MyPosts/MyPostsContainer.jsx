@@ -1,9 +1,7 @@
-import React from "react";
 import { connect } from 'react-redux';
 import { updateNewPostTextActionCreator, addPostActionCreator } from '../../../redux/profileReducer';
 import MyPosts from "./MyPosts";
 
-debugger
 
 const mapStateToProps = (state) => {
   return {
@@ -27,3 +25,5 @@ const mapDispatchToProps = (dispatch) => {
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps) (MyPosts);
 
 export default MyPostsContainer;
+
+
