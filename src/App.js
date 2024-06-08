@@ -3,7 +3,7 @@ import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import UsersContainer from "./components/Users/UsersContainer";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 
@@ -13,23 +13,26 @@ const App = () => {
 
 
   return (
-
+    <BrowserRouter>
     <div className='app-wrapper'>
           <HeaderContainer />
           <Navbar />
      <div className='app-wrapper-content'>
-         <Routes>
-             <Route path = "/dialogs" element={<DialogsContainer/>}/>
-             <Route path = "/profile/:userId?" element ={<ProfileContainer />} />
-             <Route path = "/users" element={<UsersContainer/>}/>
-         </Routes>
+     <Switch>
+            <Route exact path="/dialogs" component={DialogsContainer} />
+            <Route exact path="/profile/:userId?" component={ProfileContainer} />
+            <Route exact path="/users" component={UsersContainer} />
+          </Switch>
+          
      </div>
     </div>
 
-
+</BrowserRouter>
   );
 }
 
 
 
 export default App;
+
+

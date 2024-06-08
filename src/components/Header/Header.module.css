@@ -9,11 +9,25 @@ header {
 }
 
 .loginBlock {
-   float: right;
+    float: right;
+    font-weight:  bold;
+    color: darkblue;
+    font-size: large;
+    margin: 15px 100px 0px 0px;
+    border: 3px solid red;
+    box-shadow: 0px 0px 5px 5px red;
+    background-color: red ;
+    border-radius: 40%;
 }
 
 .loginBlock a {
-    font-weight: bold;
+    font-weight:  bold;
     color: darkblue;
-    font-size: larger;
+    font-size: large;
+    margin: 15px 100px 0px 0px;
+    border: 3px solid red;
+    box-shadow: 0px 0px 5px 5px red;
+    background-color: red ;
+    border-radius: 40%;
+   
 }

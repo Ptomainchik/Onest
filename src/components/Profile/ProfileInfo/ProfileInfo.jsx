@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
   return (
     <div>
     <div>
-     <img className={classes.img1} alt="Mountians" src="https://sportishka.com/uploads/posts/2023-12/1701737070_sportishka-com-p-gori-amanos-vkontakte-6.jpg"/>
+     <img className={classes.img1} alt="Mountians" src="https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg"/>
      </div>
      <div>
      <img  alt="User" src={props.profile.photos.large}/>
