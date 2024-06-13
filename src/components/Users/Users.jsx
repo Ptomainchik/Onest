@@ -39,7 +39,7 @@ let Users = (props) => {
     </span>
     <span>
       <span>
-       <div>{u.name}</div>
+       <div className={classes.nameUser}>{u.name}</div>
        <div>{u.status}</div>
       </span>
     </span>

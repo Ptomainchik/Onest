@@ -1,11 +1,14 @@
 .post{
-    color: blueviolet;
+   color: #000;
+   font-weight: bolder;
+}
+.post span {
+    padding-left: 15px;
 }
 
 .post img {
     width: 100px;
+    margin: 10px;
+    border:  rgb(3, 6, 48) 3px solid ;
 }
 
-.posts {
-    font-size: 2rem;
-}

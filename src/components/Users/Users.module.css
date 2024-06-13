@@ -1,5 +1,7 @@
 .photo {
+    margin: 30px 0px 0px 0px;
     border-radius: 50%;
+
 }
 
 .selectedPage {
@@ -8,8 +10,7 @@
 }
 
 .follow { 
-    background-color: aqua;
-    border-radius: 50%;
+    background-color: rgb(55, 168, 29);
     border: 2px black solid;
     box-shadow: 0px 0px 10px 3px black ;    
     font-size: small;
@@ -18,11 +19,15 @@
 }
 
 .unfollow {
-    background-color: rgb(0, 255, 34);
-    border-radius: 50%;
+    background-color: rgb(211, 186, 46);
     border: 2px black solid;
     box-shadow: 0px 0px 10px 3px black ;    
     font-size: small;
     font-weight: bold;  
     width: 80px;
+}
+
+.nameUser {
+    font-weight: bold;
+    padding-top: 10px;
 }

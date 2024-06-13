@@ -1,33 +1,31 @@
 header {
     grid-area: h;
-    background-color: rgba(13, 190, 13, 0.377);
+    background-color: rgb(3, 6, 48);
 }
 
 .head img {
+    float: left;
      width: 80px;
      height: 80px;
 }
 
 .loginBlock {
-    float: right;
+    float: left ;
     font-weight:  bold;
-    color: darkblue;
+    color: white;
     font-size: large;
-    margin: 15px 100px 0px 0px;
-    border: 3px solid red;
-    box-shadow: 0px 0px 5px 5px red;
-    background-color: red ;
-    border-radius: 40%;
+    margin: 15px 100px 0px 20px;
+    border: 3px solid rgba(65, 79, 126, 0.651);
+    box-shadow: 0px 0px 5px 5px  rgba(65, 79, 126, 0.651);
+    background-color: rgba(65, 79, 126, 0.651) ;
 }
 
 .loginBlock a {
+    padding: 0px 10px 0px 10px;
+    float: left ;
     font-weight:  bold;
-    color: darkblue;
+    color: white;
     font-size: large;
-    margin: 15px 100px 0px 0px;
-    border: 3px solid red;
-    box-shadow: 0px 0px 5px 5px red;
-    background-color: red ;
-    border-radius: 40%;
-   
+    box-shadow: 0px 0px 5px 5px  rgba(65, 79, 126, 0.651);
+    background-color: rgba(65, 79, 126, 0.651) ;
 }
