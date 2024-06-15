@@ -7,10 +7,22 @@ import { Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import LoginPage from "./components/Login/Login";
+import { Component } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { initializedApp } from "./redux/appReduser";
+import Preloader from "./components/common/Preloader/Preloader";
 
 
-const App = () => {
+class App extends Component  {
+  componentDidMount() {
+    this.props.initializedApp();
+    }
 
+render(){
+  if (!this.props.initialized) {
+  return <Preloader/>}
 
   return (
     
@@ -29,10 +41,12 @@ const App = () => {
 
 
   );
-}
+}}
 
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
 
-
-export default App;
+export default compose ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
 
 

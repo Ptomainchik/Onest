@@ -14,7 +14,7 @@ header {
     font-weight:  bold;
     color: white;
     font-size: large;
-    margin: 15px 100px 0px 20px;
+    margin: 10px 100px 0px 20px;
     border: 3px solid rgba(65, 79, 126, 0.651);
     box-shadow: 0px 0px 5px 5px  rgba(65, 79, 126, 0.651);
     background-color: rgba(65, 79, 126, 0.651) ;
@@ -28,4 +28,10 @@ header {
     font-size: large;
     box-shadow: 0px 0px 5px 5px  rgba(65, 79, 126, 0.651);
     background-color: rgba(65, 79, 126, 0.651) ;
+}
+.loginBlock button {
+    height: 30px ;
+    background-color: rgba(65, 79, 126, 0.651);
+    border-color: gray;
+    color: white;
 }

@@ -1,0 +1,16 @@
+
+.formControl.error input,
+.formControl.error textarea {
+    border: 3px rgb(160, 0, 0) solid;
+
+}
+
+.formControl.error {
+    color:  rgb(160, 0, 0);
+    font-weight: bold;
+}
+
+.formSummuryError {
+    color:  rgb(160, 0, 0);
+    font-weight: bold;
+}
