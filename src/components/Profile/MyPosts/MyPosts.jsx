@@ -6,7 +6,7 @@ import { maxLengthCreator, required } from "../../../utils/validators/validators
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const MyPosts = (props) => {
-  
+   console.log("render");
    let postsElements = 
    props.posts.map (post => <Post  message={post.message} likesCount={post.likesCount}/>)
  
@@ -21,8 +21,6 @@ const MyPosts = (props) => {
      {postsElements}
     </div>
     </div> 
-    
-     
 }
 
 const maxLength50 = maxLengthCreator(50);
