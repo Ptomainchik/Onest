@@ -8,11 +8,12 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import LoginPage from "./components/Login/Login";
 import { Component } from "react";
-import { connect } from "react-redux";
+import { Provider, connect } from "react-redux";
 import { compose } from "redux";
-import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter, withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { initializedApp } from "./redux/appReduser";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./redux/redux-store";
 
 
 class App extends Component  {
@@ -47,6 +48,14 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
+let AppContainer = compose ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
 
+const OneApp = (props) => {
+  return <BrowserRouter>
+  <Provider store = {store}>
+   <AppContainer/>
+  </Provider>
+</BrowserRouter>
+}
 
+export default OneApp;

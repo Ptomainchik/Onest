@@ -1,4 +1,15 @@
-.selectedPage {
-    font-weight: bold;
-    background-color: red;
+.paginator {
+    margin: 10px;
 }
+
+.pageNumber {
+    padding: 2px;
+    border: 3px solid green;
+}
+
+.pageNumber.selectedPage {
+    font-weight: bold;
+    border-color: red;
+    
+}
+
