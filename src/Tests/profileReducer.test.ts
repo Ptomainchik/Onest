@@ -1,13 +1,17 @@
-import profileReduser, { addPostActionCreator, deletePost } from "../redux/profileReducer";
+import profileReduser, { actions } from "../redux/profileReducer";
 
 let state = {
   posts: [
-      {id: 1, message:"Hi, how are you?", likesCount: "13"},
-      {id: 2, message:"It's my first post", likesCount: "32"}]
+      {id: 1, messages:"Hi, how are you?", likesCount: 13},
+      {id: 2, messages:"It's my first post", likesCount: 32}
+    ],
+      profile: null,
+      status: "" ,
+      newPostText: ""  
   }
 
 it("length of posts should be incremented", () =>  {
-  let action = addPostActionCreator("vseHorosho!!!");
+  let action = actions.addPostActionCreator("vseHorosho!!!");
 
   
   let newState = profileReduser(state, action);
@@ -16,15 +20,15 @@ it("length of posts should be incremented", () =>  {
 })
 
 it("message of new post should be correct", () =>  {
-  let action = addPostActionCreator("vseHorosho!!!");
+  let action = actions.addPostActionCreator("vseHorosho!!!");
   
   let newState = profileReduser(state, action);
 
-  expect(newState.posts[2].message).toBe ("vseHorosho!!!");
+  expect(newState.posts[2].messages).toBe ("vseHorosho!!!");
 })
 
 it("after deliting length should be decrement", () =>  {
-  let action = deletePost(1);
+  let action = actions.deletePost(1);
   
   let newState = profileReduser(state, action);
 
@@ -32,7 +36,7 @@ it("after deliting length should be decrement", () =>  {
 })
 
 it("after deliting length should't be decrement if id is incorrect", () =>  {
-  let action = deletePost(1000);
+  let action = actions.deletePost(1000);
   
   let newState = profileReduser(state, action);
 

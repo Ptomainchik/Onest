@@ -1,9 +1,9 @@
-import { createStore,combineReducers, applyMiddleware, } from "redux";
+import { createStore,combineReducers, applyMiddleware, Action, } from "redux";
 import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
 import usersReduser from "./usersReduser"; 
 import authReducer from "./authReduser";
-import {thunk as thunkMiddleware} from "redux-thunk";
+import {ThunkAction, thunk as thunkMiddleware} from "redux-thunk";
 import { reducer as formReduser } from "redux-form";
 import appReducer from "./appReduser";
 
@@ -18,12 +18,13 @@ let rootReducer = combineReducers({
 });
 
 type RootReduserType = typeof rootReducer;
-
 export type AppStateType = ReturnType<RootReduserType>
 
 type PropetiesTypes<T> = T extends {[key: string]: infer U} ? U : never
-
 export type InferActionsTypes<T extends {[key: string]: (...args: any[]) => any}> = ReturnType<PropetiesTypes<T>>
+
+export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A> 
+
 
 // @ts-ignore
 let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
