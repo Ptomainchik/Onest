@@ -6,8 +6,7 @@ let state = {
       {id: 2, messages:"It's my first post", likesCount: 32}
     ],
       profile: null,
-      status: "" ,
-      newPostText: ""  
+      status: ""  
   }
 
 it("length of posts should be incremented", () =>  {

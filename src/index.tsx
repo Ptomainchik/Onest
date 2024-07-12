@@ -5,7 +5,7 @@ import './index.css';
 import OneApp from './App';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root= ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render(

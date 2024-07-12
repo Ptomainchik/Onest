@@ -9,7 +9,6 @@ let initialState = {
         {id: 2, messages:"It's my first post", likesCount: 32}] as Array<PostType>,
      profile: null as ProfileType | null,
      status: "" ,
-     newPostText: ""  
     }
 
 const profileReducer = (state = initialState, action: ActionsType): InitialStateType => {
@@ -20,10 +19,6 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
             message: action.newPostText,
             likesCount: 0
           };
-          return {
-            ...state,
-            posts: [...state.posts, newPost] as any ,
-            newPostText: ""};
         }
         case "SN/PROFILE/SET-STATUS":{
           return { 

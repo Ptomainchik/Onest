@@ -9,16 +9,32 @@ import { compose } from "redux";
 import { BrowserRouter, Redirect, Switch, withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { initializedApp } from "./redux/appReduser";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/redux-store";
+import store, { AppStateType } from "./redux/redux-store";
 import { withSuspense } from "./components/hoc/withSuspense";
+
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
 const LoginPage = React.lazy(() => import("./components/Login/Login"));
 const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"));
 
-class App extends Component  {
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+  initializedApp: () => void
+}
+
+const SuspendedDialogs = withSuspense(DialogsContainer)
+const SuspendedProfile = withSuspense(ProfileContainer)
+const SuspendedLoginPage = withSuspense(LoginPage)
+
+
+class App extends Component<MapPropsType & DispatchPropsType> {
+  catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
+    alert("Some error occured")
+  }
+
   componentDidMount() {
-    this.props.initializedApp();
+    this.props.initializedApp()
+    window.addEventListener("unhadledrejection", this.catchAllUnhandledErrors)
     }
 
 render(){
@@ -33,10 +49,10 @@ render(){
      <div className='app-wrapper-content'>
         <Switch>
             <Route exact path = "/" render = {() => <Redirect to = {"/profile"}/>}/>
-            <Route path = "/dialogs" render = {withSuspense(DialogsContainer)}/>
-            <Route path = "/profile/:userId?" render = {withSuspense(ProfileContainer)}/>
-            <Route path = "/users" render = {() => <UsersContainer pageTitle={"Atractor"}/>}/>
-            <Route path = "/login" render = {withSuspense(LoginPage)}/>
+            <Route path = "/dialogs" render = {() => <SuspendedDialogs/>}/>
+            <Route path = "/profile/:userId?" render = {() => <SuspendedProfile/>}/>
+            <Route path = "/users" render = {() => <UsersContainer pageTitle={"Atractors"}/>}/>
+            <Route path = "/login" render = {() => <SuspendedLoginPage/>}/>
             <Route path = "*" render = {() => <div>404 NOT FOUND</div>}/>
         </Switch>
      </div>
@@ -46,13 +62,13 @@ render(){
   );
 }}
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized
 })
 
-let AppContainer = compose ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
+let AppContainer = compose<React.ComponentType> ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
 
-const OneApp = (props) => {
+const OneApp: React.FC = (props) => {
   return <BrowserRouter>
   <Provider store = {store}>
    <AppContainer/>

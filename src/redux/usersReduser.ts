@@ -1,4 +1,4 @@
-import { AppStateType, BaseThunkType, InferActionsTypes } from './redux-store';
+import { BaseThunkType, InferActionsTypes } from './redux-store';
 import { UserType } from "../types/types";
 import { updateObjectInArray } from "../utils/validators/objectHelpers";
 import { Dispatch } from 'redux';

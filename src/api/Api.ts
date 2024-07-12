@@ -7,6 +7,10 @@ export const instance = axios.create({
     headers: {"API-KEY": "e550a630-6adb-4483-b731-d04a33277ffe"}
 });
 
+
+
+
+
 export enum ResultCodesEnum {
    Success = 0,
    Error = 1,
@@ -15,6 +19,7 @@ export enum ResultCodesEnum {
 export enum ResultCodeForCaptchaEnum {
    CaptchaIsRequired = 10
 }
+
 
 export type GetItemsType = {
    items: Array<UserType>

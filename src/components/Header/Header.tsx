@@ -2,8 +2,16 @@ import React from "react";
 import classes from"./Header.module.css";
 import { NavLink } from "react-router-dom";
 
+export type MapPropsType = {
+  isAuth: boolean
+  login: string | null
+}
 
-const Header = (props) => {
+export type DispatchPropsType = {
+    logout: () => void
+  }
+
+const Header: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     return <header className={classes.head}>
   
     <img alt="Logo happy new year" src="https://avatars.mds.yandex.net/i?id=d6e021c9cea3d16f6d3c88a9e2a8c27fe8336f6f-12480075-images-thumbs&n=13"/>
