@@ -2,11 +2,10 @@ import React from "react";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { Component } from "react";
 import { Provider, connect } from "react-redux";
 import { compose } from "redux";
-import { BrowserRouter, Redirect, Switch, withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { initializedApp } from "./redux/appReduser";
 import Preloader from "./components/common/Preloader/Preloader";
 import store, { AppStateType } from "./redux/redux-store";
@@ -21,7 +20,7 @@ type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
   initializedApp: () => void
 }
-
+const SuspendedUsers = withSuspense(UsersContainer)
 const SuspendedDialogs = withSuspense(DialogsContainer)
 const SuspendedProfile = withSuspense(ProfileContainer)
 const SuspendedLoginPage = withSuspense(LoginPage)
@@ -34,7 +33,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
   componentDidMount() {
     this.props.initializedApp()
-    window.addEventListener("unhadledrejection", this.catchAllUnhandledErrors)
+    // window.addEventListener("unhadledrejection", this.catchAllUnhandledErrors)
     }
 
 render(){
@@ -51,7 +50,7 @@ render(){
             <Route exact path = "/" render = {() => <Redirect to = {"/profile"}/>}/>
             <Route path = "/dialogs" render = {() => <SuspendedDialogs/>}/>
             <Route path = "/profile/:userId?" render = {() => <SuspendedProfile/>}/>
-            <Route path = "/users" render = {() => <UsersContainer pageTitle={"Atractors"}/>}/>
+            <Route path = "/users" render = {() => <SuspendedUsers pageTitle={"Atractors"}/>}/>
             <Route path = "/login" render = {() => <SuspendedLoginPage/>}/>
             <Route path = "*" render = {() => <div>404 NOT FOUND</div>}/>
         </Switch>

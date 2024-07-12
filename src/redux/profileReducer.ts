@@ -19,7 +19,9 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
             message: action.newPostText,
             likesCount: 0
           };
-        }
+        } 
+        break
+
         case "SN/PROFILE/SET-STATUS":{
           return { 
             ...state,
@@ -37,7 +39,9 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
         
         default:
           return state;
-}}
+}
+return state
+}
 
 export const actions = {
   addPostActionCreator: (newPostText: string) => ({type: "SN/PROFILE/ADD-POST", newPostText} as const),
