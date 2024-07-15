@@ -9,21 +9,24 @@ import { compose } from "redux";
 import { initializedApp } from "./redux/appReduser";
 import Preloader from "./components/common/Preloader/Preloader";
 import store, { AppStateType } from "./redux/redux-store";
-import { withSuspense } from "./components/hoc/withSuspense";
+import { withAuthRedirect } from "./components/hoc/withSuspense";
+import { UsersPage } from "./components/Users/UsersContainer";
+import { LoginPage } from "./components/Login/LoginPage";
+
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
-const LoginPage = React.lazy(() => import("./components/Login/Login"));
-const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"));
+
+
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
   initializedApp: () => void
 }
-const SuspendedUsers = withSuspense(UsersContainer)
-const SuspendedDialogs = withSuspense(DialogsContainer)
-const SuspendedProfile = withSuspense(ProfileContainer)
-const SuspendedLoginPage = withSuspense(LoginPage)
+
+const SuspendedDialogs = withAuthRedirect(DialogsContainer)
+const SuspendedProfile = withAuthRedirect(ProfileContainer)
+
 
 
 class App extends Component<MapPropsType & DispatchPropsType> {
@@ -50,8 +53,8 @@ render(){
             <Route exact path = "/" render = {() => <Redirect to = {"/profile"}/>}/>
             <Route path = "/dialogs" render = {() => <SuspendedDialogs/>}/>
             <Route path = "/profile/:userId?" render = {() => <SuspendedProfile/>}/>
-            <Route path = "/users" render = {() => <SuspendedUsers pageTitle={"Atractors"}/>}/>
-            <Route path = "/login" render = {() => <SuspendedLoginPage/>}/>
+            <Route path = "/users" render = {() => <UsersPage pageTitle ={"Atractors"}/>}/>
+            <Route path = "/login" render = {() => <LoginPage/>}/>
             <Route path = "*" render = {() => <div>404 NOT FOUND</div>}/>
         </Switch>
      </div>
