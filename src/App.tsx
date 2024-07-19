@@ -14,9 +14,11 @@ import { UsersPage } from "./components/Users/UsersContainer";
 import { LoginPage } from "./components/Login/LoginPage";
 
 
+
+
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
-
+const ChatPage = React.lazy(() => import("./components/Pages/Chat/ChatPage"));
 
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
@@ -26,6 +28,7 @@ type DispatchPropsType = {
 
 const SuspendedDialogs = withAuthRedirect(DialogsContainer)
 const SuspendedProfile = withAuthRedirect(ProfileContainer)
+const SuspendedChatPage = withAuthRedirect(ChatPage)
 
 
 
@@ -55,6 +58,7 @@ render(){
             <Route path = "/profile/:userId?" render = {() => <SuspendedProfile/>}/>
             <Route path = "/users" render = {() => <UsersPage pageTitle ={"Atractors"}/>}/>
             <Route path = "/login" render = {() => <LoginPage/>}/>
+            <Route path = "/chat" render = {() => <SuspendedChatPage/>}/>
             <Route path = "*" render = {() => <div>404 NOT FOUND</div>}/>
         </Switch>
      </div>
