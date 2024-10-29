@@ -3,8 +3,8 @@ import { UserType } from "../types/types";
 
 export const instance = axios.create({
     withCredentials: true,
-    baseURL: "https://social-network.samuraijs.com/api/1.0/",
-    headers: {"API-KEY": "e550a630-6adb-4483-b731-d04a33277ffe"}
+    baseURL: "https://social-network.samuraijs.com/api/1.0",
+    headers: {"API-KEY": "c9b45f4f-0379-4b76-9d84-1234e4136236"}
 });
 
 
