@@ -5,10 +5,11 @@ import { BaseThunkType, InferActionsTypes } from "./redux-store";
 
 let initialState = {
     posts: [
-        {id: 1, messages:"Hi, how are you?", likesCount: 13},
-        {id: 2, messages:"It's my first post", likesCount: 32}] as Array<PostType>,
+        {id: 1, message:"Hi, how are you?", likesCount: 13},
+        {id: 2, message:"It's my first post", likesCount: 32}] as Array<PostType>,
      profile: null as ProfileType | null,
      status: "" ,
+     newPostText: ""
     }
 
 const profileReducer = (state = initialState, action: ActionsType): InitialStateType => {
@@ -19,9 +20,11 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
             message: action.newPostText,
             likesCount: 0
           };
+          return {
+            ...state,
+            posts: [...state.posts, newPost]
+          };
         } 
-        break
-
         case "SN/PROFILE/SET-STATUS":{
           return { 
             ...state,
