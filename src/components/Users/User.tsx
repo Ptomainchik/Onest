@@ -2,14 +2,14 @@ import React from "react";
 import classes from "./Users.module.css";
 import userPhoto from "./../assets/images/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
 import {NavLink} from "react-router-dom";
-import { UserType } from "../../types/types";
+import { UsersType } from "../../types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { isAuthSelector } from "../../redux/usersSelectors";
 import { followingInProgressSelector } from "../../redux/usersSelectors";
 import { follow, unfollow } from "../../redux/usersReduser";
 
 type PropsType = { 
-    user: UserType
+    user: UsersType
     followingInProgress: Array<number>
     unfollow: (userId: number) => void
     follow: (userId: number) => void

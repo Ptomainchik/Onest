@@ -1,5 +1,5 @@
 export type PostType = {
-    id: number
+    id: string
     likesCount: number
     message: string
 
@@ -31,10 +31,11 @@ export type ProfileType = {
     aboutMe: string
   }
   
-export type UserType = {
+export type UsersType = {
     id: number
     name: string
     status: string 
     photos: PhotosType
     followed: boolean
+    location: {city: string, country: string}
 }  

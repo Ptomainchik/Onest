@@ -9,12 +9,17 @@ export type MapPropsType = {
 }
 export type DispatchPropsType = {
     addPost: (newPostText: string) => void
+    addLikes: (likes:number, id: string) => void
 }
 
 const MyPosts: React.FC<MapPropsType & DispatchPropsType> = props => {
     let postsElements =
         [...props.posts]
-            .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
+            .map(p => <Post 
+                    id={p.id}
+                    addLikes={props.addLikes}
+                    message={p.message}
+                    likesCount={p.likesCount}/>);
 
     let onAddPost = (values: AddPostFormValuesType) => {
         props.addPost(values.newPostText);
@@ -23,7 +28,7 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = props => {
     return (
         <div className={classes.mpost}>
             <h3>My posts</h3>
-            <AddPostForm onSubmit={onAddPost}/>
+            <AddPostForm onSubmit={onAddPost} />
             <div className={classes.posts}>
                 {postsElements}
             </div>

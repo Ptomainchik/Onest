@@ -1,12 +1,12 @@
 import { BaseThunkType, InferActionsTypes } from './redux-store';
-import { UserType } from "../types/types";
+import { UsersType } from "../types/types";
 import { updateObjectInArray } from "../utils/objectHelpers";
 import { Dispatch } from 'redux';
 import { usersAPI } from '../api/UsersApi';
 import { APIResponseType } from '../api/Api';
 
 let initialState = {
-    users: [] as Array<UserType>,
+    users: [] as Array<UsersType>,
     pageSize: 20,
     totalUsersCount: 0,
     currentPage: 1,
@@ -61,7 +61,7 @@ followSuccess: (userId: number ) => ({type: "SN/USERS/FOLLOW", userId} as const)
 
 unfollowSuccess:(userId: number ) => ({type: "SN/USERS/UNFOLLOW", userId} as const),
 
-setUsers: (users: Array<UserType>) => ({type: "SN/USERS/SET_USERS", users} as const),
+setUsers: (users: Array<UsersType>) => ({type: "SN/USERS/SET_USERS", users} as const),
 
 setCurrentPage: (currentPage: number) => ({type: "SN/USERS/SET_CURRENT_PAGE", currentPage} as const),
 
