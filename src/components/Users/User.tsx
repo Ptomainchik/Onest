@@ -6,7 +6,7 @@ import { UsersType } from "../../types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { isAuthSelector } from "../../redux/usersSelectors";
 import { followingInProgressSelector } from "../../redux/usersSelectors";
-import { follow, unfollow } from "../../redux/usersReduser";
+import { follow, unfollow } from "../../redux/usersReducer";
 
 type PropsType = { 
     user: UsersType

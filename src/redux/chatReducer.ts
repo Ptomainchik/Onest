@@ -10,7 +10,7 @@ let initialState = {
     status: "pending" as StatusType
 }
 
-const chatReduser = (state = initialState, actions: ActionsType): InitialStateType => {
+const chatReducer = (state = initialState, actions: ActionsType): InitialStateType => {
     switch (actions.type) {
         case "SN/CHAT/MESSAGES_RECEIVED":
             return {
@@ -74,7 +74,7 @@ export const sendMessage = (message: string): ThunkType => async (dispatch) => {
 }
 
 
-export default chatReduser;
+export default chatReducer;
 
 
 

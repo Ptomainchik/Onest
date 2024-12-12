@@ -1,22 +1,22 @@
 import { createStore,combineReducers, applyMiddleware, Action, } from "redux";
 import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
-import usersReduser from "./usersReduser"; 
-import authReducer from "./authReduser";
+import usersReducer from "./usersReducer"; 
+import authReducer from "./authReducer";
 import thunkMiddleware, {ThunkAction} from "redux-thunk";
-import { reducer as formReduser } from "redux-form";
-import appReducer from "./appReduser";
-import chatReduser from "./chatReduser";
+import { reducer as formReducer } from "redux-form";
+import appReducer from "./appReducer";
+import chatReducer from "./chatReducer";
 
 
 let rootReducer = combineReducers({
         profilePage:profileReducer,
         dialogsPage:dialogsReducer,
-        usersPage:usersReduser,
+        usersPage:usersReducer,
         auth: authReducer,
-        form: formReduser,
+        form: formReducer,
         app: appReducer,
-        chat: chatReduser
+        chat: chatReducer
 });
 
 type RootReduserType = typeof rootReducer;

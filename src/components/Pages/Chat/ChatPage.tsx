@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import classes from "./ChatPage.module.css"
 import { ChatMessageApiType } from "../../../api/ChatApi";
 import { useDispatch, useSelector } from "react-redux";
-import { sendMessage, startMessagesListening, stopMessagesListening } from "../../../redux/chatReduser";
+import { sendMessage, startMessagesListening, stopMessagesListening } from "../../../redux/chatReducer";
 import { AppStateType } from "../../../redux/redux-store";
 
 const ChatPage: React.FC = () => {

@@ -1,5 +1,5 @@
-import { authAPI } from './../api/AuthApi';
-import { securityAPI } from './../api/SecurityApi';
+import { authAPI } from '../api/AuthApi';
+import { securityAPI } from '../api/SecurityApi';
 import { FormAction, stopSubmit } from "redux-form";
 import { ResultCodeForCaptchaEnum, ResultCodesEnum } from "../api/Api";
 import { BaseThunkType, InferActionsTypes } from './redux-store';

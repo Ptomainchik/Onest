@@ -6,7 +6,7 @@ import { BrowserRouter, Redirect, Route, Switch, withRouter } from "react-router
 import { Component } from "react";
 import { Provider, connect } from "react-redux";
 import { compose } from "redux";
-import { initializedApp } from "./redux/appReduser";
+import { initializedApp } from "./redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store, { AppStateType } from "./redux/redux-store";
 import { withAuthRedirect } from "./components/hoc/withSuspense";

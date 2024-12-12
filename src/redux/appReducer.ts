@@ -1,4 +1,4 @@
-import { getAuthUserData } from "./authReduser";
+import { getAuthUserData } from "./authReducer";
 import { InferActionsTypes } from "./redux-store";
 
 let initialState = {

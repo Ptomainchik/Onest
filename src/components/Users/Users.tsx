@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 import UsersSearchForm from "./UsersFormSearch";
-import { FilterType, requestUsers } from "../../redux/usersReduser";
+import { FilterType, requestUsers } from "../../redux/usersReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentPage, getFollowingInProgress, getPageSize, getTotalUsersCount, getUsers, getUsersFilter } from "../../redux/usersSelectors";
 import { useHistory } from "react-router-dom";
